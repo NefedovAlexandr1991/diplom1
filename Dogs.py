@@ -51,6 +51,15 @@ def write_to_json(new_list):
 breed = input('Введите породу собаки (на английском языке): ')
 #https://dog.ceo/api/breed/hound/afghan/images картинки всех подвидов
 #print(response)
+#создаем папку dogs
+headers = {
+    'Authorization' : f'OAuth {token}'
+}
+params = {
+    'path' : 'dogs'
+}
+response = requests.put('https://cloud-api.yandex.net/v1/disk/resources', headers = headers, params = params)
+
 url2 = f'https://dog.ceo/api/breed/{breed}/list'
 response2 = requests.get(url2).json()
 list_of_types = []
